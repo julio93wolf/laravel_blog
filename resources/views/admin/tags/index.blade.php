@@ -5,9 +5,11 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="panel panel-default">
-					<div class="panel-heading">
-						Lista de Etiquetas
-						<a href="{{ route('tags.create') }}" class="btn btn-sm btn-primary pull-right">Crear</a>
+					<div class="panel-heading clearfix">
+						<h4 class="panel-title pull-left" style="padding-top: 7.5px;">Lista de Etiquetas</h4>
+						<div class="btn-group pull-right">
+  						<a href="{{ route('tags.create') }}" class="btn btn-sm btn-primary">Crear</a>
+						</div>
 					</div>
 					<div class="panel-body">
 						<table class="table table-hover">

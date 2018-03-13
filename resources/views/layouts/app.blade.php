@@ -47,7 +47,7 @@
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
                             <li><a href="{{ route('tags.index') }}">Etiquetas</a></li>
-                            <li><a href="{{ route('categories.index') }}">categorias</a></li>
+                            <li><a href="{{ route('categories.index') }}">Categorias</a></li>
                             <li><a href="{{ route('posts.index') }}">Entradas</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -86,26 +86,29 @@
             </div>
         @endif
 
-        @yield('content')
-    </div>
-
-    @if(count($errors))
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <div class="alert alert-success">
-                        <ul>
-                            @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
+        @if(count($errors))
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    @endif
+        @endif
+
+        @yield('content')
+    </div>
+
+    
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

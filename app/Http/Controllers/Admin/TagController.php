@@ -5,8 +5,8 @@ namespace Blog\Http\Controllers\Admin;
 use Blog\Models\Tag;
 use Illuminate\Http\Request;
 use Blog\Http\Controllers\Controller;
-use Blog\Http\Request\TagStoreRequest;
-use Blog\Http\Request\TagUpdateRequest;
+use Blog\Http\Requests\TagStoreRequest;
+use Blog\Http\Requests\TagUpdateRequest;
 
 class TagController extends Controller
 {
@@ -46,8 +46,8 @@ class TagController extends Controller
     {
         //Validar
         $tag = Tag::create($request->all());
-        return redirect()->route('tags.edit',$tag->id)
-            ->width('info','Etiqueta creada con éxito');
+        return redirect()->route('tags.edit',$tag)
+            ->with('info','Etiqueta creada con éxito');
     }
 
     /**
@@ -83,10 +83,10 @@ class TagController extends Controller
     public function update(TagUpdateRequest $request, Tag $tag)
     {
         //Validar
-        $tag = Tag::find($tag);
+        $tag = Tag::find($tag->id);
         $tag->fill($request->all())->save();
-        return redirect()->route('tags.edit',$tag->id)
-            ->width('info','Etiqueta actualizada con éxito');
+        return redirect()->route('tags.edit',$tag)
+            ->with('info','Etiqueta actualizada con éxito');
     }
 
     /**
