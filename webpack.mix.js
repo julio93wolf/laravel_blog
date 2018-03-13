@@ -11,5 +11,14 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+mix.scripts([
+	'resources/assets/js/jquery-3.3.1.js',
+	'resources/assets/js/popper.js',
+	'resources/assets/js/bootstrap.js',
+	'resources/assets/js/app.js'	
+	],'public/js/app.js');
+
+mix.styles([
+	'resources/assets/css/bootstrap.css'
+	],'public/css/app.css');
+   //.sass('resources/assets/sass/app.scss', 'public/css');
